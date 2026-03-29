@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CampusFix</string>
+
+    <string-array name="arrayCategories">
+        <item>Technology</item>
+        <item>Science</item>
+        <item>Art</item>
+        <item>History</item>
+    </string-array>
+</resources>

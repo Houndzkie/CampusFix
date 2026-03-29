@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/textviewProfileHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User Profile"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/maroon"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/textviewUsernameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/textviewFirstNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="First Name:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/textviewMiddleNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Middle Name:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewMiddleName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/textviewLastNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Last Name:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/textviewEmailLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email Address:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
+        android:layout_marginBottom="20dp"/>
+
+    <Button
+        android:id="@+id/buttonBackToDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Back to Dashboard"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="@null"/>
+
+</LinearLayout>
