@@ -30,10 +30,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".DashboardActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".ProfileActivity"
             android:exported="false" />
 
@@ -44,6 +40,10 @@
         <activity
             android:name=".MaintenanceDashboardActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".ReportIssueActivity"
+            android:exported="true" />
 
     </application>
 

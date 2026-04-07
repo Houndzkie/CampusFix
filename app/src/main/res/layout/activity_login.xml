@@ -49,8 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="School ID"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittextLoginSchoolID"
@@ -58,27 +58,27 @@
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_edittext"
             android:hint="Enter your ID"
-            android:paddingLeft="15dp"
-            android:background="@drawable/rounded_edittext" />
+            android:paddingLeft="15dp" />
 
         <TextView
             android:id="@+id/textviewLoginPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Password"
-            android:textSize="16sp"
-            android:textColor="@android:color/black"/>
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/edittextLoginPassword"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="8dp"
+            android:background="@drawable/rounded_edittext"
             android:hint="Enter your password"
-            android:paddingLeft="15dp"
             android:inputType="textPassword"
-            android:background="@drawable/rounded_edittext" />
+            android:paddingLeft="15dp" />
 
         <TextView
             android:id="@+id/textviewLoginForgotPassword"
@@ -86,20 +86,20 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="8dp"
+            android:layout_marginRight="10dp"
             android:text="Forgot Password?"
             android:textColor="#555555"
-            android:textSize="14dp"
-            android:layout_marginRight="10dp"/>
+            android:textSize="14dp" />
 
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="30dp"
+            android:background="@drawable/rounded_button"
             android:text="Login"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:background="@drawable/rounded_button"
             app:backgroundTint="@null" />
 
         <Button
@@ -107,19 +107,19 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_button"
             android:text="Create Account"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            android:background="@drawable/rounded_button"
             app:backgroundTint="@null" />
 
         <Button
             android:id="@+id/buttonDebugClearData"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DEBUG: CLEAR ALL USERS"
+            android:layout_marginTop="20dp"
             android:backgroundTint="#FF0000"
-            android:layout_marginTop="20dp" />
+            android:text="DEBUG: CLEAR ALL USERS" />
     </LinearLayout>
 
 </LinearLayout>

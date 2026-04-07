@@ -30,6 +30,8 @@ class StudentDashboardActivity : Activity() {
         }
 
         buttonReportIssue.setOnClickListener {
+            val intent = Intent(this, ReportIssueActivity::class.java)
+            startActivity(intent)
         }
     }
 }

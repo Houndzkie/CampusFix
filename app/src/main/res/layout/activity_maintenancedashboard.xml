@@ -15,7 +15,7 @@
             android:id="@+id/textviewDashboardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CampusFix Dashboard"
+            android:text="Maintenance Staff Dashboard"
             android:textColor="@color/gold"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -32,16 +32,16 @@
             android:id="@+id/textviewWelcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome back, Student!"
-            android:textSize="16sp"
+            android:layout_marginBottom="20dp"
+            android:text="Welcome back, Staff!"
             android:textColor="#333333"
-            android:layout_marginBottom="20dp"/>
+            android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/textviewStatusLabel"
+            android:id="@+id/textviewRepairRequests"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Active Repair Requests"
+            android:text="View Repair Requests"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="10dp"/>
@@ -53,10 +53,10 @@
             android:layout_marginBottom="20dp"/>
 
         <Button
-            android:id="@+id/buttonReportIssue"
+            android:id="@+id/buttonViewActiveRepairs"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:text="Report an Issue"
+            android:text="View Active Repairs"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             android:layout_marginBottom="10dp"

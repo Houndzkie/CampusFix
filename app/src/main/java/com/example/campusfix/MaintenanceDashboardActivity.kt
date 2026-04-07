@@ -14,7 +14,7 @@ class MaintenanceDashboardActivity : Activity() {
         val textviewWelcome = findViewById<TextView>(R.id.textviewWelcome)
         val buttonToProfile = findViewById<Button>(R.id.buttonToProfile)
         val buttonLogout = findViewById<Button>(R.id.buttonLogout)
-        val buttonReportIssue = findViewById<Button>(R.id.buttonReportIssue)
+        val buttonViewActiveRepairs = findViewById<Button>(R.id.buttonViewActiveRepairs)
 
         textviewWelcome.text = "Welcome back, User!"
 
@@ -29,7 +29,9 @@ class MaintenanceDashboardActivity : Activity() {
             finish()
         }
 
-        buttonReportIssue.setOnClickListener {
+        buttonViewActiveRepairs.setOnClickListener {
+            val intent = Intent(this, ActiveRepairsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

@@ -26,7 +26,7 @@ class ProfileActivity : Activity() {
 
         // Navigation back to Dashboard
         buttonBackToDashboard.setOnClickListener {
-            val intent = Intent(this, DashboardActivity::class.java)
+            val intent = Intent(this, StudentDashboardActivity::class.java)
             startActivity(intent)
             finish()
         }
