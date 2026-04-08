@@ -41,7 +41,6 @@ class RegisterActivity : Activity() {
 
             var isValid = true
 
-            // --- Validation Logic (Same as before) ---
             if (fullName.isEmpty()) {
                 edittextRegisterFullName.error = "Full Name is required"
                 isValid = false
@@ -57,7 +56,9 @@ class RegisterActivity : Activity() {
                 edittextRegisterInstitutionalEmail.error = "Institutional Email is required"
                 isValid = false
             }
-            if (roleIndex == 0) { isValid = false }
+            if (roleIndex == 0) {
+                isValid = false
+            }
             if (password.length < 8) {
                 edittextRegisterPassword.error = "Password must be at least 8 characters"
                 isValid = false
@@ -67,24 +68,16 @@ class RegisterActivity : Activity() {
                 isValid = false
             }
 
-            // 2. Save All Information if Valid
-            // ... inside the if (isValid) block ...
-
             if (isValid) {
                 val editor = sharedPref.edit()
 
-                // Using "${studentID}_" makes these keys unique to THIS specific user
                 editor.putString("${studentID}_fullName", fullName)
                 editor.putString("${studentID}_email", email)
                 editor.putString("${studentID}_role", selectedRole)
                 editor.putString("${studentID}_password", password)
 
-                // We also save a list of IDs or a "last registered ID" if needed,
-                // but the keys above are what allow multiple accounts to exist.
                 editor.apply()
 
-                // [cite: 19] After successful login, user is directed to the Dashboard.
-                // (In your case, you are sending them to LoginActivity first to verify)
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }

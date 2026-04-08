@@ -16,7 +16,9 @@ class StudentDashboardActivity : Activity() {
         val buttonLogout = findViewById<Button>(R.id.buttonLogout)
         val buttonReportIssue = findViewById<Button>(R.id.buttonReportIssue)
 
-        textviewWelcome.text = "Welcome back, User!"
+        val fullName = intent.getStringExtra("USER_NAME") ?: "User"
+        val firstName = fullName.trim().split(" ")[0]
+        textviewWelcome.text = "Welcome back, $firstName!"
 
         buttonToProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)

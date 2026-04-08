@@ -24,18 +24,16 @@ class LoginActivity : Activity() {
         }
 
         buttonLogin.setOnClickListener {
-            val idInput = edittextLoginSchoolID.text.toString().trim() // Added .trim() to prevent space errors
+            val idInput = edittextLoginSchoolID.text.toString().trim()
             val passwordInput = edittextLoginPassword.text.toString()
 
             val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
 
-            // Look for the password and role using the dynamic key
             val registeredPass = sharedPref.getString("${idInput}_password", null)
             val registeredRole = sharedPref.getString("${idInput}_role", "")
 
             var isValid = true
 
-            // 1. Check for Empty Fields
             if (idInput.isEmpty()) {
                 edittextLoginSchoolID.error = "School ID is required"
                 isValid = false
@@ -46,14 +44,11 @@ class LoginActivity : Activity() {
                 isValid = false
             }
 
-            // 2. Only proceed if fields are not empty
             if (isValid) {
                 if (registeredPass == null) {
-                    // ID does not exist in SharedPreferences
                     edittextLoginSchoolID.error = "No account found with this ID"
-                }
-                else if (passwordInput == registeredPass) {
-                    // SUCCESS: ID and Password match
+                } else if (passwordInput == registeredPass) {
+                    val fullName = sharedPref.getString("${idInput}_fullName", "User")
 
                     val intent = when (registeredRole) {
                         "Maintenance Staff" -> Intent(this, MaintenanceDashboardActivity::class.java)
@@ -62,10 +57,10 @@ class LoginActivity : Activity() {
                     }
 
                     intent.putExtra("USER_ROLE", registeredRole)
+                    intent.putExtra("USER_NAME", fullName)
                     startActivity(intent)
 
                 } else {
-                    // ID exists but password is wrong
                     edittextLoginPassword.error = "Invalid Password"
                 }
             }
@@ -76,18 +71,15 @@ class LoginActivity : Activity() {
             startActivity(intent)
         }
 
-        // Inside onCreate
         val buttonDebugClearData = findViewById<Button>(R.id.buttonDebugClearData)
 
         buttonDebugClearData.setOnClickListener {
             val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
             val editor = sharedPref.edit()
 
-            // This wipes the entire XML file clean
             editor.clear()
             editor.apply()
 
-            // Feedback so you know it worked
             android.widget.Toast.makeText(this, "Database Cleared!", android.widget.Toast.LENGTH_SHORT).show()
         }
     }
