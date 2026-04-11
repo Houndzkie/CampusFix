@@ -1,108 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="20dp"
-    android:background="#FFFFFF">
+    android:background="#F5F5F5">
 
-    <TextView
-        android:id="@+id/textviewProfileHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="User Profile"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="@color/maroon"
-        android:layout_marginBottom="30dp"/>
-
-    <TextView
-        android:id="@+id/textviewUsernameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewUsername"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="12dp"/>
+        android:layout_height="80dp"
+        android:background="#89343B"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/textviewProfileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Profile"
+            android:textColor="#F8C400"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/textviewFirstNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First Name:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewFirstName"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="12dp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-    <TextView
-        android:id="@+id/textviewMiddleNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Middle Name:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewMiddleName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="12dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_edittext"
+            android:padding="20dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="24dp">
 
-    <TextView
-        android:id="@+id/textviewLastNameLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Last Name:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewLastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="12dp"/>
+            <TextView
+                android:id="@+id/textviewUsernameLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Full Name:"
+                android:textStyle="bold"
+                android:textColor="#89343B"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textviewUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/textviewEmailLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email Address:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="12dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School ID:"
+                android:textStyle="bold"
+                android:textColor="#89343B"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textviewSchoolID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp"/>
 
-    <TextView
-        android:id="@+id/textviewRoleLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Account Role:"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/textviewRole"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Loading..."
-        android:layout_marginBottom="20dp"/>
+            <TextView
+                android:id="@+id/textviewEmailLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email Address:"
+                android:textStyle="bold"
+                android:textColor="#89343B"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textviewEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="18sp"
+                android:textColor="#333333"
+                android:layout_marginBottom="16dp"/>
 
-    <Button
-        android:id="@+id/buttonBackToDashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Back to Dashboard"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@null"/>
+            <TextView
+                android:id="@+id/textviewRoleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Role:"
+                android:textStyle="bold"
+                android:textColor="#89343B"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/textviewRole"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loading..."
+                android:textSize="18sp"
+                android:textColor="#333333"/>
+        </LinearLayout>
 
+        <Button
+            android:id="@+id/buttonBackToDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="Back to Dashboard"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#F8C400"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 </LinearLayout>

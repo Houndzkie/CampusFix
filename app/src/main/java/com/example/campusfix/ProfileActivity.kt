@@ -12,9 +12,7 @@ class ProfileActivity : Activity() {
         setContentView(R.layout.actvity_profile)
 
         val textviewUsername = findViewById<TextView>(R.id.textviewUsername)
-        val textviewFirstName = findViewById<TextView>(R.id.textviewFirstName)
-        val textviewMiddleName = findViewById<TextView>(R.id.textviewMiddleName)
-        val textviewLastName = findViewById<TextView>(R.id.textviewLastName)
+        val textviewSchoolID = findViewById<TextView>(R.id.textviewSchoolID)
         val textviewEmail = findViewById<TextView>(R.id.textviewEmail)
         val textviewRole = findViewById<TextView>(R.id.textviewRole)
         val buttonBackToDashboard = findViewById<Button>(R.id.buttonBackToDashboard)
@@ -24,13 +22,8 @@ class ProfileActivity : Activity() {
         val userEmail = intent.getStringExtra("USER_EMAIL") ?: "Unknown Email"
         val userRole = intent.getStringExtra("USER_ROLE") ?: "Unknown Role"
 
-        textviewUsername.text = userId
-        
-        val nameParts = userName.trim().split(" ")
-        textviewFirstName.text = if (nameParts.isNotEmpty()) nameParts[0] else "Unknown"
-        textviewMiddleName.text = if (nameParts.size > 2) nameParts.subList(1, nameParts.size - 1).joinToString(" ") else "N/A"
-        textviewLastName.text = if (nameParts.size > 1) nameParts.last() else "Unknown"
-
+        textviewUsername.text = userName
+        textviewSchoolID.text = userId
         textviewEmail.text = userEmail
         textviewRole.text = userRole
 
