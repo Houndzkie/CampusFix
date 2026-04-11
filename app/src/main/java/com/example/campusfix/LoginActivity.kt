@@ -79,6 +79,9 @@ class LoginActivity : Activity() {
             editor.clear()
             editor.apply()
 
+            DataManager.init(this)
+            DataManager.clearAllData()
+
             android.widget.Toast.makeText(this, "Database Cleared!", android.widget.Toast.LENGTH_SHORT).show()
         }
     }

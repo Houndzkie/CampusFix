@@ -80,7 +80,7 @@
             android:id="@+id/buttonToProfile"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="View Profile &amp; History"
+            android:text="View Profile"
             android:background="@drawable/rounded_button"
             android:textColor="@android:color/white"
             android:layout_marginTop="10dp"

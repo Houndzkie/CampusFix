@@ -119,7 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:backgroundTint="#FF0000"
-            android:text="DEBUG: CLEAR ALL USERS" />
+            android:text="DEBUG: CLEAR ALL DATA" />
     </LinearLayout>
 
 </LinearLayout>

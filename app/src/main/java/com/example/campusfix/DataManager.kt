@@ -82,4 +82,9 @@ object DataManager {
             saveData(currentList)
         }
     }
+
+    fun clearAllData() {
+        _requestsFlow.value = emptyList()
+        sharedPreferences?.edit()?.clear()?.apply()
+    }
 }
