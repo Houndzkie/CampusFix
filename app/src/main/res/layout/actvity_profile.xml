@@ -80,6 +80,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Loading..."
+        android:layout_marginBottom="12dp"/>
+
+    <TextView
+        android:id="@+id/textviewRoleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account Role:"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/textviewRole"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Loading..."
         android:layout_marginBottom="20dp"/>
 
     <Button

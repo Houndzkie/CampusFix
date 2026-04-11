@@ -42,6 +42,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".UnifiedDashboardActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".ReportIssueActivity"
             android:exported="true" />
 

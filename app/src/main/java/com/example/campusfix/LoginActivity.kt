@@ -49,15 +49,14 @@ class LoginActivity : Activity() {
                     edittextLoginSchoolID.error = "No account found with this ID"
                 } else if (passwordInput == registeredPass) {
                     val fullName = sharedPref.getString("${idInput}_fullName", "User")
+                    val emailAddress = sharedPref.getString("${idInput}_email", "Unknown Email")
 
-                    val intent = when (registeredRole) {
-                        "Maintenance Staff" -> Intent(this, MaintenanceDashboardActivity::class.java)
-                        "Student", "Faculty" -> Intent(this, StudentDashboardActivity::class.java)
-                        else -> Intent(this, StudentDashboardActivity::class.java)
-                    }
+                    val intent = Intent(this, UnifiedDashboardActivity::class.java)
 
                     intent.putExtra("USER_ROLE", registeredRole)
                     intent.putExtra("USER_NAME", fullName)
+                    intent.putExtra("USER_ID", idInput)
+                    intent.putExtra("USER_EMAIL", emailAddress)
                     startActivity(intent)
 
                 } else {

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#89343B"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/textviewDashboardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CIT-U CampusFix"
+            android:textColor="#F8C400"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center_vertical" />
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center_vertical"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            style="?android:attr/borderlessButtonStyle"/>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/textviewWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome back, User!"
+            android:textSize="16sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:id="@+id/textviewListTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Task List"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerviewRequests"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_repair_request"/>
+
+        <Button
+            android:id="@+id/buttonReportIssue"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Submit Request"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="16dp"
+            app:backgroundTint="#89343B"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonToProfile"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="View Profile &amp; History"
+            android:background="@drawable/rounded_button"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="10dp"
+            app:backgroundTint="#89343B" />
+
+    </LinearLayout>
+</LinearLayout>
