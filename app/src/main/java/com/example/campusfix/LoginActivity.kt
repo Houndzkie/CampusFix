@@ -70,19 +70,5 @@ class LoginActivity : Activity() {
             startActivity(intent)
         }
 
-        val buttonDebugClearData = findViewById<Button>(R.id.buttonDebugClearData)
-
-        buttonDebugClearData.setOnClickListener {
-            val sharedPref = getSharedPreferences("UserPrefs", MODE_PRIVATE)
-            val editor = sharedPref.edit()
-
-            editor.clear()
-            editor.apply()
-
-            DataManager.init(this)
-            DataManager.clearAllData()
-
-            android.widget.Toast.makeText(this, "Database Cleared!", android.widget.Toast.LENGTH_SHORT).show()
-        }
     }
 }
