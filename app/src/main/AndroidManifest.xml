@@ -34,14 +34,6 @@
             android:exported="false" />
 
         <activity
-            android:name=".StudentDashboardActivity"
-            android:exported="false" />
-
-        <activity
-            android:name=".MaintenanceDashboardActivity"
-            android:exported="false" />
-
-        <activity
             android:name=".UnifiedDashboardActivity"
             android:exported="false" />
 
