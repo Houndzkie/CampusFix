@@ -23,6 +23,16 @@ class ProfileActivity : AppCompatActivity() {
     private var currentUserId = ""
     private var tempCameraUri: Uri? = null
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        tempCameraUri?.let { outState.putParcelable("tempCameraUri", it) }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        tempCameraUri = savedInstanceState.getParcelable("tempCameraUri")
+    }
+
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
         if (success) {
             tempCameraUri?.let { uri ->
@@ -105,6 +115,12 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun saveUriToInternalStorageAndSet(sourceUri: Uri) {
         try {
+            try {
+                contentResolver.takePersistableUriPermission(sourceUri, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            } catch (e: SecurityException) {
+                // Ignore if the URI doesn't support persistable permissions (e.g., Camera or some PickVisualMedia)
+            }
+
             val imagesDir = File(filesDir, "profile_images")
             if (!imagesDir.exists()) imagesDir.mkdirs()
             val destFile = File(imagesDir, "${UUID.randomUUID()}.jpg")

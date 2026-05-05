@@ -39,7 +39,7 @@ class UnifiedDashboardActivity : AppCompatActivity() {
 
         val firstName = userName.trim().split(" ")[0]
         textviewWelcome.text = "Welcome back, $firstName!"
-        textviewIdNumber.text = "ID: $currentUserId"
+        textviewIdNumber.text = currentUserId
 
         // Load existing profile photo
         val existingPhotoUrl = DataManager.getProfilePhoto(currentUserId)

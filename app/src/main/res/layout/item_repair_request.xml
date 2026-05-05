@@ -20,6 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -36,14 +37,11 @@
                 android:id="@+id/textviewStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp"
+                android:background="@drawable/bg_status_badge"
                 android:text="Pending"
                 android:textColor="@android:color/white"
                 android:textSize="12sp"
-                android:textStyle="bold"
-                app:backgroundTint="@color/gold" />
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView

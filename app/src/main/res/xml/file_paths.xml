@@ -4,4 +4,8 @@
     <files-path
         name="images"
         path="images/" />
+    <!-- Allow FileProvider access to profile images directory -->
+    <files-path
+        name="profile_images"
+        path="profile_images/" />
 </paths>
