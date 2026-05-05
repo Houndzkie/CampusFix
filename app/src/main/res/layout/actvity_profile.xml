@@ -1,119 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fillViewport="true"
     android:background="#F5F5F5">
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="#89343B"
-        android:padding="16dp">
-        <TextView
-            android:id="@+id/textviewProfileTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Profile"
-            android:textColor="#F8C400"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_vertical" />
-    </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/maroon">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageviewProfileLarge"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    app:shapeAppearanceOverlay="@style/CircleImageView"
+                    android:src="@drawable/anonymous" />
+
+                <Button
+                    android:id="@+id/buttonChangePhoto"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Change Photo"
+                    android:textColor="@color/gold"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/rounded_edittext"
-            android:padding="20dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="24dp">
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="-40dp"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="8dp">
 
-            <TextView
-                android:id="@+id/textviewUsernameLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Full Name:"
-                android:textStyle="bold"
-                android:textColor="#89343B"
-                android:textSize="14sp"/>
-            <TextView
-                android:id="@+id/textviewUsername"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:layout_marginBottom="16dp"/>
+                android:orientation="vertical"
+                android:padding="24dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="School ID:"
-                android:textStyle="bold"
-                android:textColor="#89343B"
-                android:textSize="14sp"/>
-            <TextView
-                android:id="@+id/textviewSchoolID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:layout_marginBottom="16dp"/>
+                <TextView
+                    android:id="@+id/textviewUsernameLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name"
+                    android:textColor="@color/maroon"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewEmailLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Email Address:"
-                android:textStyle="bold"
-                android:textColor="#89343B"
-                android:textSize="14sp"/>
-            <TextView
-                android:id="@+id/textviewEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:layout_marginBottom="16dp"/>
+                <TextView
+                    android:id="@+id/textviewUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Loading..."
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textviewRoleLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Account Role:"
-                android:textStyle="bold"
-                android:textColor="#89343B"
-                android:textSize="14sp"/>
-            <TextView
-                android:id="@+id/textviewRole"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Loading..."
-                android:textSize="18sp"
-                android:textColor="#333333"/>
-        </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student/Staff ID"
+                    android:textColor="@color/maroon"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/buttonBackToDashboard"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:text="Back to Dashboard"
-            android:background="@drawable/rounded_button"
-            android:textColor="#FFFFFF"
-            app:backgroundTint="#F8C400"
-            android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/textviewSchoolID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Loading..."
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
 
+                <TextView
+                    android:id="@+id/textviewEmailLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Institutional Email"
+                    android:textColor="@color/maroon"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textviewEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="Loading..."
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textviewRoleLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Role"
+                    android:textColor="@color/maroon"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textviewRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="24dp"
+                    android:text="Loading..."
+                    android:textColor="#333333"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/buttonBackToDashboard"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Back to Dashboard"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/maroon" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

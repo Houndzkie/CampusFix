@@ -4,171 +4,203 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:background="#FFFFFF">
+    android:background="@color/maroon">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:background="@color/maroon">
+        <!-- Header / Logo Area -->
+        <LinearLayout
+            android:id="@+id/headerLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textviewRegisterTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:text="CampusFix"
+                android:textColor="@color/gold"
+                android:textSize="40sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/textviewRegisterTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CampusFix"
-                    android:textColor="@color/gold"
-                    android:textStyle="bold"
-                    android:textSize="40sp" />
+            <TextView
+                android:id="@+id/textviewRegisterSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Create an Account"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-                <TextView
-                    android:id="@+id/textviewRegisterSubtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Need something to get fixed?"
-                    android:textColor="@android:color/white"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </FrameLayout>
-
-        <LinearLayout
+        <!-- Card Layout -->
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="32dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/headerLayout">
 
-            <TextView
-                android:id="@+id/textviewRegisterFullName"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Full Name"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                android:orientation="vertical"
+                android:padding="24dp">
 
-            <EditText
-                android:id="@+id/edittextRegisterFullName"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter your name"
-                android:paddingLeft="15dp" />
+                <TextView
+                    android:id="@+id/textviewRegisterFullName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Full Name"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewRegisterStudentID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Student ID"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/edittextRegisterFullName"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableStart="@android:drawable/ic_menu_edit"
+                    android:drawablePadding="12dp"
+                    android:hint="Enter your name"
+                    android:paddingHorizontal="16dp" />
 
-            <EditText
-                android:id="@+id/edittextRegisterStudentID"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter your ID"
-                android:paddingLeft="15dp" />
+                <TextView
+                    android:id="@+id/textviewRegisterStudentID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student/Staff ID"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewRegisterInstitutionalEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Institutional Email"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/edittextRegisterStudentID"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableStart="@android:drawable/ic_menu_myplaces"
+                    android:drawablePadding="12dp"
+                    android:hint="Enter your ID"
+                    android:paddingHorizontal="16dp" />
 
-            <EditText
-                android:id="@+id/edittextRegisterInstitutionalEmail"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Enter your email"
-                android:paddingLeft="15dp" />
+                <TextView
+                    android:id="@+id/textviewRegisterInstitutionalEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Institutional Email"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewRegisterRole"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Role"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/edittextRegisterInstitutionalEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableStart="@android:drawable/ic_dialog_email"
+                    android:drawablePadding="12dp"
+                    android:hint="Enter your email"
+                    android:paddingHorizontal="16dp" />
 
-            <Spinner
-                android:id="@+id/spinnerRegisterRole"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="12dp"
-                android:background="@drawable/rounded_edittext"
-                android:spinnerMode="dropdown" />
+                <TextView
+                    android:id="@+id/textviewRegisterRole"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Role"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewRegisterPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <Spinner
+                    android:id="@+id/spinnerRegisterRole"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:paddingHorizontal="16dp"
+                    android:spinnerMode="dropdown" />
 
-            <EditText
-                android:id="@+id/edittextRegisterPassword"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="25dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Create a password"
-                android:inputType="textPassword"
-                android:paddingLeft="15dp" />
+                <TextView
+                    android:id="@+id/textviewRegisterPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textviewRegisterConfirmPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Confirm Password"
-                android:textColor="#000000"
-                android:textSize="16sp" />
+                <EditText
+                    android:id="@+id/edittextRegisterPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableStart="@android:drawable/ic_lock_lock"
+                    android:drawablePadding="12dp"
+                    android:hint="Create a password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="16dp" />
 
-            <EditText
-                android:id="@+id/edittextRegisterConfirmPassword"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="25dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="Re-enter password"
-                android:inputType="textPassword"
-                android:paddingLeft="15dp" />
+                <TextView
+                    android:id="@+id/textviewRegisterConfirmPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confirm Password"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/buttonRegisterCreateAccount"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:text="Create Account"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                android:textAllCaps="false"
-                android:background="@drawable/rounded_button"
-                app:backgroundTint="@null" />
+                <EditText
+                    android:id="@+id/edittextRegisterConfirmPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:drawableStart="@android:drawable/ic_lock_lock"
+                    android:drawablePadding="12dp"
+                    android:hint="Re-enter password"
+                    android:inputType="textPassword"
+                    android:paddingHorizontal="16dp" />
 
-        </LinearLayout>
-    </LinearLayout>
+                <Button
+                    android:id="@+id/buttonRegisterCreateAccount"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/rounded_button"
+                    android:text="Create Account"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/maroon" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

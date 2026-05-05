@@ -1,61 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@drawable/rounded_edittext"
-    android:layout_marginBottom="12dp"
-    android:layout_marginHorizontal="8dp"
+    android:layout_marginHorizontal="4dp"
+    android:layout_marginVertical="6dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
     android:clickable="true"
     android:focusable="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        
-        <TextView
-            android:id="@+id/textviewIssue"
-            android:layout_width="0dp"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Issue Title"
-            android:textSize="18sp"
-            android:textColor="#89343B"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textviewIssue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Issue Title"
+                android:textColor="@color/maroon"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textviewStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="Pending"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/gold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textviewLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@android:drawable/ic_menu_myplaces"
+            android:drawablePadding="8dp"
+            android:text="Location"
+            android:textColor="#333333"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textviewStatus"
-            android:layout_width="wrap_content"
+            android:id="@+id/textviewDescription"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pending"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="4dp"
-            android:textColor="#FFFFFF"
-            android:background="@drawable/rounded_button"
-            app:backgroundTint="#F8C400" />
+            android:layout_marginTop="4dp"
+            android:text="Description goes here."
+            android:textColor="#555555"
+            android:textSize="14sp" />
+
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textviewLocation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Location"
-        android:textSize="14sp"
-        android:textColor="#333333"
-        android:layout_marginTop="4dp"
-        android:textStyle="bold"/>
-
-    <TextView
-        android:id="@+id/textviewDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description goes here."
-        android:textSize="14sp"
-        android:textColor="#555555"
-        android:layout_marginTop="4dp"/>
-
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

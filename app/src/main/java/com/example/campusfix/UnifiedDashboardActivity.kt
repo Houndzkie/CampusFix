@@ -32,13 +32,24 @@ class UnifiedDashboardActivity : AppCompatActivity() {
 
         val textviewDashboardTitle = findViewById<TextView>(R.id.textviewDashboardTitle)
         val textviewWelcome = findViewById<TextView>(R.id.textviewWelcome)
-        val buttonLogout = findViewById<Button>(R.id.buttonLogout)
-        val buttonReportIssue = findViewById<Button>(R.id.buttonReportIssue)
-        val buttonToProfile = findViewById<Button>(R.id.buttonToProfile)
+        val imageviewProfileIcon = findViewById<android.widget.ImageView>(R.id.imageviewProfileIcon)
+        val textviewIdNumber = findViewById<TextView>(R.id.textviewIdNumber)
+        val buttonReportIssue = findViewById<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>(R.id.buttonReportIssue)
         val recyclerviewRequests = findViewById<RecyclerView>(R.id.recyclerviewRequests)
 
         val firstName = userName.trim().split(" ")[0]
         textviewWelcome.text = "Welcome back, $firstName!"
+        textviewIdNumber.text = "ID: $currentUserId"
+
+        // Load existing profile photo
+        val existingPhotoUrl = DataManager.getProfilePhoto(currentUserId)
+        if (!existingPhotoUrl.isNullOrEmpty()) {
+            try {
+                imageviewProfileIcon.setImageURI(android.net.Uri.parse(existingPhotoUrl))
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
 
         if (isStaff) {
             textviewDashboardTitle.text = "Staff Dashboard"
@@ -82,19 +93,31 @@ class UnifiedDashboardActivity : AppCompatActivity() {
             startActivity(intentReport)
         }
 
-        buttonToProfile.setOnClickListener {
-            val intentProfile = Intent(this, ProfileActivity::class.java)
-            intentProfile.putExtra("USER_ID", currentUserId)
-            intentProfile.putExtra("USER_NAME", userName)
-            intentProfile.putExtra("USER_EMAIL", userEmail)
-            intentProfile.putExtra("USER_ROLE", userRole)
-            startActivity(intentProfile)
-        }
-
-        buttonLogout.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+        imageviewProfileIcon.setOnClickListener { view ->
+            val popupMenu = android.widget.PopupMenu(this, view)
+            popupMenu.menu.add("View Profile")
+            popupMenu.menu.add("Logout")
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.title) {
+                    "View Profile" -> {
+                        val intentProfile = Intent(this, ProfileActivity::class.java)
+                        intentProfile.putExtra("USER_ID", currentUserId)
+                        intentProfile.putExtra("USER_NAME", userName)
+                        intentProfile.putExtra("USER_EMAIL", userEmail)
+                        intentProfile.putExtra("USER_ROLE", userRole)
+                        startActivity(intentProfile)
+                        true
+                    }
+                    "Logout" -> {
+                        val intent = Intent(this, LoginActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                        true
+                    }
+                    else -> false
+                }
+            }
+            popupMenu.show()
         }
     }
 
@@ -111,5 +134,16 @@ class UnifiedDashboardActivity : AppCompatActivity() {
             }
         }
         adapter.submitList(filteredList)
+
+        // Refresh profile photo on resume
+        val existingPhotoUrl = DataManager.getProfilePhoto(currentUserId)
+        if (!existingPhotoUrl.isNullOrEmpty()) {
+            try {
+                val imageviewProfileIcon = findViewById<android.widget.ImageView>(R.id.imageviewProfileIcon)
+                imageviewProfileIcon.setImageURI(android.net.Uri.parse(existingPhotoUrl))
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }

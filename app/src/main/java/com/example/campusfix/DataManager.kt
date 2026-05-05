@@ -82,4 +82,12 @@ object DataManager {
             saveData(currentList)
         }
     }
+
+    fun saveProfilePhoto(userId: String, photoUrl: String) {
+        sharedPreferences?.edit()?.putString("profile_photo_$userId", photoUrl)?.apply()
+    }
+
+    fun getProfilePhoto(userId: String): String? {
+        return sharedPreferences?.getString("profile_photo_$userId", null)
+    }
 }
