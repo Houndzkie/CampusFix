@@ -1,10 +1,12 @@
 package com.example.campusfix
 
 import android.os.Bundle
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
@@ -27,6 +29,7 @@ class StaffActionBottomSheet(
         
         val textviewIssueTitle = view.findViewById<TextView>(R.id.textviewIssueTitle)
         val textviewTimestamp = view.findViewById<TextView>(R.id.textviewTimestamp)
+        val imageviewRequestPhoto = view.findViewById<ImageView>(R.id.imageviewRequestPhoto)
         val textviewLocation = view.findViewById<TextView>(R.id.textviewLocation)
         val textviewDescription = view.findViewById<TextView>(R.id.textviewDescription)
         val buttonAccept = view.findViewById<Button>(R.id.buttonAccept)
@@ -37,6 +40,13 @@ class StaffActionBottomSheet(
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val formattedDate = sdf.format(Date(request.timestamp))
         textviewTimestamp.text = "Reported on: $formattedDate"
+
+        if (request.photoUrl.isNotBlank()) {
+            imageviewRequestPhoto.setImageURI(Uri.parse(request.photoUrl))
+            imageviewRequestPhoto.visibility = View.VISIBLE
+        } else {
+            imageviewRequestPhoto.visibility = View.GONE
+        }
 
         textviewLocation.text = request.location
         textviewDescription.text = request.description

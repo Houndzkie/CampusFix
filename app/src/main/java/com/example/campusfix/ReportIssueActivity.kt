@@ -10,8 +10,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia.ImageOnly
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
+import androidx.activity.result.PickVisualMediaRequest
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
@@ -34,7 +34,14 @@ class ReportIssueActivity : AppCompatActivity() {
     }
 
     private val pickGalleryLauncher = registerForActivityResult(PickVisualMedia()) { uri: Uri? ->
-        uri?.let { saveUriToInternalStorageAndPreview(it) }
+        uri?.let { 
+            try {
+                contentResolver.takePersistableUriPermission(it, Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            } catch (e: SecurityException) {
+                e.printStackTrace()
+            }
+            saveUriToInternalStorageAndPreview(it) 
+        }
     }
 
     override fun onCreate(bundle: Bundle?) {
@@ -76,7 +83,11 @@ class ReportIssueActivity : AppCompatActivity() {
             .setItems(options) { _, which ->
                 when (which) {
                     0 -> launchCamera()
-                    1 -> pickGalleryLauncher.launch(ImageOnly)
+                    1 -> pickGalleryLauncher.launch(
+                        PickVisualMediaRequest.Builder()
+                            .setMediaType(PickVisualMedia.ImageOnly)
+                            .build()
+                    )
                 }
             }
             .show()

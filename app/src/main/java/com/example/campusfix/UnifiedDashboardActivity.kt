@@ -44,7 +44,7 @@ class UnifiedDashboardActivity : AppCompatActivity() {
             textviewDashboardTitle.text = "Staff Dashboard"
             buttonReportIssue.visibility = View.GONE
         } else {
-            textviewDashboardTitle.text = "Student Dashboard"
+            textviewDashboardTitle.text = "Dashboard"
             buttonReportIssue.visibility = View.VISIBLE
         }
 
