@@ -70,16 +70,6 @@
         app:layout_constraintTop_toBottomOf="@id/topNavBar">
 
         <TextView
-            android:id="@+id/textviewWelcome"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:text="Welcome back, User!"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/textviewListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

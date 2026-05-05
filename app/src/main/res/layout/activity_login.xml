@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="CIT-U Maintenance App"
+            android:text="Need something to get fixed?"
             android:textColor="@android:color/white"
             android:textSize="18sp"
             android:textStyle="bold" />

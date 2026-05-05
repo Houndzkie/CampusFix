@@ -55,7 +55,10 @@ class ProfileActivity : AppCompatActivity() {
         val textviewEmail = findViewById<TextView>(R.id.textviewEmail)
         val textviewRole = findViewById<TextView>(R.id.textviewRole)
         val buttonBackToDashboard = findViewById<Button>(R.id.buttonBackToDashboard)
+        val buttonAddPhoto = findViewById<Button>(R.id.buttonAddPhoto)
         val buttonChangePhoto = findViewById<Button>(R.id.buttonChangePhoto)
+        val buttonRemovePhoto = findViewById<Button>(R.id.buttonRemovePhoto)
+        val layoutPhotoActions = findViewById<android.view.View>(R.id.layoutPhotoActions)
         val imageviewProfileLarge = findViewById<ImageView>(R.id.imageviewProfileLarge)
 
         currentUserId = intent.getStringExtra("USER_ID") ?: "Unknown ID"
@@ -68,18 +71,43 @@ class ProfileActivity : AppCompatActivity() {
         textviewEmail.text = userEmail
         textviewRole.text = userRole
 
+        fun updateButtonVisibility(hasPhoto: Boolean) {
+            if (hasPhoto) {
+                buttonAddPhoto.visibility = android.view.View.GONE
+                layoutPhotoActions.visibility = android.view.View.VISIBLE
+            } else {
+                buttonAddPhoto.visibility = android.view.View.VISIBLE
+                layoutPhotoActions.visibility = android.view.View.GONE
+            }
+        }
+
         // Load existing photo
         val existingPhotoUrl = DataManager.getProfilePhoto(currentUserId)
         if (!existingPhotoUrl.isNullOrEmpty()) {
             try {
                 imageviewProfileLarge.setImageURI(Uri.parse(existingPhotoUrl))
+                updateButtonVisibility(true)
             } catch (e: Exception) {
                 e.printStackTrace()
+                updateButtonVisibility(false)
             }
+        } else {
+            updateButtonVisibility(false)
+        }
+
+        buttonAddPhoto.setOnClickListener {
+            showPhotoOptions()
         }
 
         buttonChangePhoto.setOnClickListener {
             showPhotoOptions()
+        }
+
+        buttonRemovePhoto.setOnClickListener {
+            DataManager.saveProfilePhoto(currentUserId, "")
+            imageviewProfileLarge.setImageResource(R.drawable.anonymous)
+            updateButtonVisibility(false)
+            Toast.makeText(this, "Profile photo removed", Toast.LENGTH_SHORT).show()
         }
 
         // Navigation back to Dashboard
@@ -138,7 +166,12 @@ class ProfileActivity : AppCompatActivity() {
             )
             
             val imageviewProfileLarge = findViewById<ImageView>(R.id.imageviewProfileLarge)
+            val buttonAddPhoto = findViewById<Button>(R.id.buttonAddPhoto)
+            val layoutPhotoActions = findViewById<android.view.View>(R.id.layoutPhotoActions)
+
             imageviewProfileLarge.setImageURI(savedUri)
+            buttonAddPhoto.visibility = android.view.View.GONE
+            layoutPhotoActions.visibility = android.view.View.VISIBLE
             
             DataManager.saveProfilePhoto(currentUserId, savedUri.toString())
             Toast.makeText(this, "Profile photo updated", Toast.LENGTH_SHORT).show()

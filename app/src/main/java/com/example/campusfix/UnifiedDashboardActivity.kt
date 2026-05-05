@@ -31,14 +31,11 @@ class UnifiedDashboardActivity : AppCompatActivity() {
         isStaff = userRole == "Maintenance Staff"
 
         val textviewDashboardTitle = findViewById<TextView>(R.id.textviewDashboardTitle)
-        val textviewWelcome = findViewById<TextView>(R.id.textviewWelcome)
         val imageviewProfileIcon = findViewById<android.widget.ImageView>(R.id.imageviewProfileIcon)
         val textviewIdNumber = findViewById<TextView>(R.id.textviewIdNumber)
         val buttonReportIssue = findViewById<com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>(R.id.buttonReportIssue)
         val recyclerviewRequests = findViewById<RecyclerView>(R.id.recyclerviewRequests)
 
-        val firstName = userName.trim().split(" ")[0]
-        textviewWelcome.text = "Welcome back, $firstName!"
         textviewIdNumber.text = currentUserId
 
         // Load existing profile photo

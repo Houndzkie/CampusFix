@@ -31,11 +31,7 @@ object DataManager {
         val requests: List<RepairRequest> = if (json != null) {
             gson.fromJson(json, type)
         } else {
-            // Initial dummy data
-            listOf(
-                RepairRequest(UUID.randomUUID().toString(), "AC Leaking", "Main Bldg - Rm 101", "Broken AC leaking water", "", "Pending", "1111", System.currentTimeMillis()),
-                RepairRequest(UUID.randomUUID().toString(), "Broken Projector", "Eng Bldg - Rm 204", "Projector is not turning on", "", "In Progress", "1111", System.currentTimeMillis())
-            )
+            emptyList()
         }
         _requestsFlow.value = requests
         saveData(requests)
