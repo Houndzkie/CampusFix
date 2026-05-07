@@ -1,4 +1,4 @@
-package com.example.campusfix
+package com.example.campusfix.ui.adapters
 
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.campusfix.R
+import com.example.campusfix.data.RepairRequest
 
 class RequestsAdapter(
     private val onItemClick: (RepairRequest) -> Unit
@@ -45,9 +47,9 @@ class RequestsAdapter(
             textviewStatus.text = request.status
 
             when (request.status) {
-                "Pending" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F8C400")) // Gold
-                "In Progress" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#89343B")) // Maroon
-                "Completed" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#4CAF50")) // Green
+                "Pending" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F8C400"))
+                "In Progress" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#89343B"))
+                "Completed" -> textviewStatus.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#4CAF50"))
             }
 
             itemView.setOnClickListener {

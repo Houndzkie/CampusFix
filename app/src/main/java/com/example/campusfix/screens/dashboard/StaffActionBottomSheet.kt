@@ -1,4 +1,4 @@
-package com.example.campusfix
+package com.example.campusfix.screens.dashboard
 
 import android.os.Bundle
 import android.net.Uri
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.campusfix.R
+import com.example.campusfix.data.DataManager
+import com.example.campusfix.data.RepairRequest
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -26,7 +29,7 @@ class StaffActionBottomSheet(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         val textviewIssueTitle = view.findViewById<TextView>(R.id.textviewIssueTitle)
         val textviewTimestamp = view.findViewById<TextView>(R.id.textviewTimestamp)
         val imageviewRequestPhoto = view.findViewById<ImageView>(R.id.imageviewRequestPhoto)
@@ -36,7 +39,7 @@ class StaffActionBottomSheet(
         val buttonFinish = view.findViewById<Button>(R.id.buttonFinish)
 
         textviewIssueTitle.text = request.issue
-        
+
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val formattedDate = sdf.format(Date(request.timestamp))
         textviewTimestamp.text = "Reported on: $formattedDate"

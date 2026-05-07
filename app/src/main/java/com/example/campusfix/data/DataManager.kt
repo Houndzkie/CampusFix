@@ -1,4 +1,4 @@
-package com.example.campusfix
+package com.example.campusfix.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,11 +11,11 @@ import java.util.UUID
 object DataManager {
     private const val PREFS_NAME = "campusfix_data"
     private const val REQUESTS_KEY = "repair_requests"
-    
+
     private val gson = Gson()
     private val _requestsFlow = MutableStateFlow<List<RepairRequest>>(emptyList())
     val requestsFlow: StateFlow<List<RepairRequest>> = _requestsFlow
-    
+
     private var sharedPreferences: SharedPreferences? = null
 
     fun init(context: Context) {

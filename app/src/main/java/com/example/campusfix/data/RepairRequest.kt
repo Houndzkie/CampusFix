@@ -1,4 +1,4 @@
-package com.example.campusfix
+package com.example.campusfix.data
 
 data class RepairRequest(
     val id: String,

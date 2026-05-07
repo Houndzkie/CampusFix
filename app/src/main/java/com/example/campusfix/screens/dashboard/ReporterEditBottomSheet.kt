@@ -1,4 +1,4 @@
-package com.example.campusfix
+package com.example.campusfix.screens.dashboard
 
 import android.os.Bundle
 import android.net.Uri
@@ -10,6 +10,9 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.example.campusfix.R
+import com.example.campusfix.data.DataManager
+import com.example.campusfix.data.RepairRequest
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -28,7 +31,7 @@ class ReporterEditBottomSheet(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         val textviewIssueTitle = view.findViewById<TextView>(R.id.textviewIssueTitle)
         val textviewTimestamp = view.findViewById<TextView>(R.id.textviewTimestamp)
         val imageviewRequestPhoto = view.findViewById<ImageView>(R.id.imageviewRequestPhoto)
@@ -37,7 +40,7 @@ class ReporterEditBottomSheet(
         val buttonSaveChanges = view.findViewById<Button>(R.id.buttonSaveChanges)
 
         textviewIssueTitle.text = request.issue
-        
+
         val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val formattedDate = sdf.format(Date(request.timestamp))
         textviewTimestamp.text = "Reported on: $formattedDate"
@@ -62,7 +65,7 @@ class ReporterEditBottomSheet(
         buttonSaveChanges.setOnClickListener {
             val updatedLocation = edittextLocation.text.toString().trim()
             val updatedDesc = edittextDescription.text.toString().trim()
-            
+
             if (updatedLocation.isNotEmpty() && updatedDesc.isNotEmpty()) {
                 DataManager.updateRequestDetails(request.id, updatedLocation, updatedDesc)
                 dismiss()
