@@ -141,4 +141,8 @@ class UnifiedDashboardActivity : AppCompatActivity(), DashboardContract.View {
         startActivity(intent)
         finish()
     }
+
+    override fun onBackPressed() {
+        // Leave empty to disable back button navigation
+    }
 }

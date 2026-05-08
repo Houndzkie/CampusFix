@@ -2,6 +2,7 @@ package com.example.campusfix.app
 
 import android.app.Application
 import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.campusfix.data.User
 
 class CustomApp : Application() {
@@ -13,5 +14,6 @@ class CustomApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Log.e("Custom App", "onCreate is called!")
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }

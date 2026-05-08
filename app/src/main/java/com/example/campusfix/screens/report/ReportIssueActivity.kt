@@ -41,7 +41,7 @@ class ReportIssueActivity : AppCompatActivity(), ReportContract.View {
 
         presenter = ReportPresenter(this, ReportModel(this))
 
-        val buttonSubmitRequest = findViewById<Button>(R.id.buttonSubmitRequest)
+        val buttonReportIssue = findViewById<Button>(R.id.buttonReportIssue)
         edittextIssue = findViewById(R.id.edittextIssue)
         edittextLocation = findViewById(R.id.edittextLocation)
         edittextDescription = findViewById(R.id.edittextDescription)
@@ -53,7 +53,7 @@ class ReportIssueActivity : AppCompatActivity(), ReportContract.View {
         buttonUploadPhoto.setOnClickListener { showPhotoOptions() }
         imageviewPhotoPreview.setOnClickListener { showPhotoOptions() }
 
-        buttonSubmitRequest.setOnClickListener {
+        buttonReportIssue.setOnClickListener {
             val issue = edittextIssue.text.toString().trim()
             val location = edittextLocation.text.toString().trim()
             val description = edittextDescription.text.toString().trim()

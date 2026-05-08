@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">CampusFix</string>
 
+    <string name="report_issue">Report Issue</string>
+
     <string-array name="arrayCategories">
         <item>Technology</item>
         <item>Science</item>
