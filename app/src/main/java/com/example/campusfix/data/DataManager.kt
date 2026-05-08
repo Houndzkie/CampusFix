@@ -69,6 +69,16 @@ object DataManager {
         }
     }
 
+    fun updateRequest(updatedRequest: RepairRequest) {
+        val currentList = _requestsFlow.value.toMutableList()
+        val index = currentList.indexOfFirst { it.id == updatedRequest.id }
+        if (index != -1) {
+            currentList[index] = updatedRequest
+            _requestsFlow.value = currentList
+            saveData(currentList)
+        }
+    }
+
     fun updateRequestDetails(requestId: String, location: String, description: String) {
         val currentList = _requestsFlow.value.toMutableList()
         val index = currentList.indexOfFirst { it.id == requestId }

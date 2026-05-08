@@ -68,6 +68,35 @@
         android:textSize="16sp"
         android:textColor="#333333"/>
 
+    <TextView
+        android:id="@+id/textviewProofLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proof of Repair:"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/imageviewRepairProof"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/buttonTakePhoto"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Take Proof Photo"
+        android:textColor="@android:color/white"
+        android:background="@drawable/rounded_button"
+        android:layout_marginBottom="16dp"
+        app:backgroundTint="#FF9800"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -20,7 +20,7 @@ class ProfileModel(private val context: Context) {
     }
 
     fun createTempImageUri(): Uri {
-        val imagesDir = File(context.filesDir, "profile_images")
+        val imagesDir = File(context.cacheDir, "profile_images")
         if (!imagesDir.exists()) imagesDir.mkdirs()
         val imageFile = File(imagesDir, "${UUID.randomUUID()}.jpg")
         return FileProvider.getUriForFile(context, "${context.applicationContext.packageName}.fileprovider", imageFile)

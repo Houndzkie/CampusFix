@@ -4,8 +4,13 @@
     <files-path
         name="images"
         path="images/" />
-    <!-- Allow FileProvider access to profile images directory -->
     <files-path
         name="profile_images"
         path="profile_images/" />
+    <cache-path
+        name="cached_images"
+        path="." />
+    <external-path
+        name="external_images"
+        path="." />
 </paths>

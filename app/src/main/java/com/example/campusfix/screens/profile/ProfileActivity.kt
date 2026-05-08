@@ -30,6 +30,14 @@ class ProfileActivity : AppCompatActivity(), ProfileContract.View {
     private lateinit var layoutPhotoActions: android.view.View
     private lateinit var imageviewProfileLarge: ImageView
 
+    private val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+        if (isGranted) {
+            presenter.onPhotoOptionSelected(0) // Launch camera if granted
+        } else {
+            Toast.makeText(this, "Camera permission is required to take photos.", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     private val takePictureLauncher = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
         presenter.onPhotoCaptured(success, tempCameraUri, currentUserId)
     }
@@ -121,7 +129,16 @@ class ProfileActivity : AppCompatActivity(), ProfileContract.View {
 
     override fun launchCamera(tempUri: Uri) {
         tempCameraUri = tempUri
-        takePictureLauncher.launch(tempUri)
+        if (androidx.core.content.ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+            try {
+                takePictureLauncher.launch(tempUri)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this, "Camera app not found or could not be opened.", Toast.LENGTH_SHORT).show()
+            }
+        } else {
+            requestPermissionLauncher.launch(android.Manifest.permission.CAMERA)
+        }
     }
 
     override fun launchGallery() {

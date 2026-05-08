@@ -61,6 +61,15 @@ class ReporterEditBottomSheet(
             buttonSaveChanges.visibility = View.GONE
             Toast.makeText(context, "Cannot edit requests that are already processing.", Toast.LENGTH_SHORT).show()
         }
+        
+        if (request.status == "Completed" && request.proofPhotoUri != null) {
+            val textviewProofLabel = view.findViewById<TextView>(R.id.textviewProofLabel)
+            val imageviewRepairProof = view.findViewById<ImageView>(R.id.imageviewRepairProof)
+            
+            textviewProofLabel.visibility = View.VISIBLE
+            imageviewRepairProof.visibility = View.VISIBLE
+            imageviewRepairProof.setImageURI(Uri.parse(request.proofPhotoUri))
+        }
 
         buttonSaveChanges.setOnClickListener {
             val updatedLocation = edittextLocation.text.toString().trim()

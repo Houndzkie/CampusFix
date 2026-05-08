@@ -8,5 +8,6 @@ data class RepairRequest(
     val photoUrl: String,
     val status: String, // "Pending", "In Progress", "Completed"
     val reporterId: String,
-    val timestamp: Long
+    val timestamp: Long,
+    val proofPhotoUri: String? = null
 )
